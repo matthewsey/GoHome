@@ -6,6 +6,7 @@ public class PlayerMovment : MonoBehaviour {
 
 	Rigidbody rigidbody;
 	public float moveSpeed;
+	public float maxSpeed= 10f;
 	private Vector3 input;
 
 	// Use this for initialization
@@ -17,8 +18,10 @@ public class PlayerMovment : MonoBehaviour {
 	
 	void Update () {
 
-		input = new Vector3 (Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
-		rigidbody.AddForce(input * moveSpeed);
-		
+		input = new Vector3 (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"));
+		if (rigidbody.velocity.magnitude < maxSpeed) {
+			
+			rigidbody.AddForce (input * moveSpeed);
+		}
 	}
 }
