@@ -9,11 +9,18 @@ public class PlayerMovment : MonoBehaviour {
 	public float maxSpeed= 10f;
 	private Vector3 input;
 
+	private Vector3 spawn;
+
 	// Use this for initialization
 	void Awake () {
 
 		rigidbody = GetComponent <Rigidbody> ();
 		
+	}
+
+	void Start () {
+	
+		spawn = transform.position;
 	}
 	
 	void Update () {
@@ -24,4 +31,13 @@ public class PlayerMovment : MonoBehaviour {
 			rigidbody.AddForce (input * moveSpeed);
 		}
 	}
+
+	void OnCollisionEnter (Collision other) {
+	
+		if (other.transform.tag == "Enemy") {
+		
+			transform.position = spawn;
+		}
+	}
+		
 }
