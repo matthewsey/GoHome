@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene/MainMenu.unity
+- path: Assets/Scene/YouWin.unity
   isLoaded: 1
   isActive: 1

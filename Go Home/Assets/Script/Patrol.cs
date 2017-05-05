@@ -8,6 +8,7 @@ public class Patrol : MonoBehaviour {
 	private int currentPoint;
 
 	// Use this for initialization
+	// The enemy will have patrolpoint to move from one point to another one when the game is switched on
 	void Awake () {
 		transform.position = patrolPoints [0].position;
 		currentPoint = 0;

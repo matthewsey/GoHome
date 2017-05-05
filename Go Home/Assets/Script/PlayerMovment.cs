@@ -25,7 +25,7 @@ public class PlayerMovment : MonoBehaviour {
 	}
 
 	void Update () {
-
+		//keys to move & the speed of the player
 		input = new Vector3 (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"));
 		if (rigidbody.velocity.magnitude < maxSpeed) {
 
@@ -35,12 +35,12 @@ public class PlayerMovment : MonoBehaviour {
 
 	void OnCollisionEnter (Collision other)
 	{
-
+		//once the player hits the enemy, he will be spawned from the beging
 		if (other.transform.tag == "Enemy") {
 
 			transform.position = spawn;
 		} else {
-
+			//if the player hits the goal of the game it wil take him to the Win scene
 			if (other.transform.tag == "GoalToWin") {
 
 				SceneManager.LoadScene ("YouWin");
